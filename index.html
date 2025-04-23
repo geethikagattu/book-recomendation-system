@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Mood Matcher</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="header">
+        <div class="logo">
+            <i class="fas fa-book-reader"></i>
+            <h1>Book Mood Matcher</h1>
+        </div>
+        <div class="search-container">
+            <input type="text" id="searchInput" placeholder="Search for books...">
+            <button id="searchBtn"><i class="fas fa-search"></i></button>
+        </div>
+        <nav class="nav">
+            <button class="about-btn"><i class="fas fa-info-circle"></i> About</button>
+            <button class="favorites-btn">
+                <i class="fas fa-heart"></i> 
+                Favorites (<span id="favorites-count">0</span>)
+            </button>
+        </nav>
+    </header>
+
+    <main class="container">
+        <div class="welcome-section">
+            <h2>Find Your Perfect Book Match</h2>
+            <p class="subtitle">Discover books that match your current mood and interests</p>
+        </div>
+        
+        <div class="mood-section">
+            <h3><i class="fas fa-smile"></i> How are you feeling today?</h3>
+            <div class="mood-container">
+                <button class="mood-btn" data-mood="happy">
+                    <i class="fas fa-laugh"></i>
+                    Happy
+                </button>
+                <button class="mood-btn" data-mood="sad">
+                    <i class="fas fa-sad-tear"></i>
+                    Sad
+                </button>
+                <button class="mood-btn" data-mood="excited">
+                    <i class="fas fa-star"></i>
+                    Excited
+                </button>
+                <button class="mood-btn" data-mood="relaxed">
+                    <i class="fas fa-spa"></i>
+                    Relaxed
+                </button>
+                <button class="mood-btn" data-mood="mysterious">
+                    <i class="fas fa-ghost"></i>
+                    Mysterious
+                </button>
+                <button class="mood-btn" data-mood="reflective">
+                    <i class="fas fa-brain"></i>
+                    Reflective
+                </button>
+            </div>
+        </div>
+
+        <div class="filter-section">
+            <div class="genre-filter">
+                <label for="genreSelect">Choose a genre:</label>
+                <select id="genreSelect">
+                    <option value="all">All Genres</option>
+                    <option value="fiction">Fiction</option>
+                    <option value="mystery">Mystery</option>
+                    <option value="fantasy">Fantasy</option>
+                    <option value="science fiction">Science Fiction</option>
+                </select>
+                <button class="random-btn"><i class="fas fa-random"></i> Random Book</button>
+            </div>
+            <div class="view-toggle">
+                <button id="gridView" class="active"><i class="fas fa-th"></i></button>
+                <button id="listView"><i class="fas fa-list"></i></button>
+            </div>
+        </div>
+
+        <div class="books-container grid-view"></div>
+    </main>
+
+    <div class="modal" id="book-modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="book-details"></div>
+        </div>
+    </div>
+
+    <div class="modal" id="about-modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>About Book Mood Matcher</h2>
+            <p>Find your next perfect read based on your current mood and interests. Our curated collection of books is designed to match your emotional state and preferences.</p>
+            <div class="features">
+                <div class="feature">
+                    <i class="fas fa-heart"></i>
+                    <h3>Mood-Based</h3>
+                    <p>Books selected to match your current emotional state</p>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-filter"></i>
+                    <h3>Smart Filtering</h3>
+                    <p>Easily find books by genre and other criteria</p>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-star"></i>
+                    <h3>Personalized</h3>
+                    <p>Save your favorites and get tailored recommendations</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="favorites-modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Your Favorite Books</h2>
+            <div class="favorites-container"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
